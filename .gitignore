@@ -15,4 +15,4 @@
 /tmp
 
 # Ignore vim .swp files
-# *.swp
+*.swp
