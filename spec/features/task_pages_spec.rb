@@ -17,7 +17,7 @@ describe "Task pages" do
     describe "/tasks" do
       before { visit '/tasks' }
 
-      it {should have_selector('li', text: @task.description) }
+      it { should have_selector('li', text: @task.description) }
     end
   end
 end

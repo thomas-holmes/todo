@@ -3,7 +3,7 @@
 <% if !@tasks.empty? %>
 <ul>
   <% @tasks.each do |task| %>
-    <li class="task"><%= task.description %></li>
+    <li class="task <%= task.importance %>"><%= task.description %></li>
   <% end %>
 </ul>
 <% end %>
