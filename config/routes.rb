@@ -12,9 +12,11 @@ Todo::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :tasks
-  
   root :to => 'application#index'
+
+  resources :tasks
+
+  #match '/tasks', to: 'task#index'
 
 
   # Sample resource route with options:

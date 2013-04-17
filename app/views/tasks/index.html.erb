@@ -1,0 +1,9 @@
+<h1>Tasks!</h1>
+
+<% if !@tasks.empty? %>
+<ul>
+  <% @tasks.each do |task| %>
+    <li class="task"><%= task.description %></li>
+  <% end %>
+</ul>
+<% end %>
