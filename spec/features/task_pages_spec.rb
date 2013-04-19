@@ -22,8 +22,14 @@ describe "Task pages" do
   end
 
   describe "multiple tasks" do
-    before { 10.times.do { FactoryGirl.create(:task) } }
+    before do
+      10.times { FactoryGirl.create(:task) } # this will create several of each importance
+      visit '/tasks'
+    end
 
+    it { should have_selector('h4', text: "low") }
+    it { should have_selector('h4', text: "medium") }
+    it { should have_selector('h4', text: "high") }
   end
 end
 
