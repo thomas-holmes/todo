@@ -20,5 +20,10 @@ describe "Task pages" do
       it { should have_selector('li', text: @task.description) }
     end
   end
+
+  describe "multiple tasks" do
+    before { 10.times.do { FactoryGirl.create(:task) } }
+
+  end
 end
 
