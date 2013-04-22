@@ -13,19 +13,33 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title>ToDo!</title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
+  <nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+    <h1><a href="/">ToDo!</a></h1>
+    <li class="toggle-topbar menu-icon">
+    <a href="#">
+      <span>Menu</span>
+    </a>
+  </ul>
+  <section class="top-bar-section">
+  <ul class="right">
+    <li><a href="/">Home</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="contact">Contact</a></li>
+  </ul>
+  </sectoin>
+  </nav>
+
   <body>
-
-    <h3>Before yield</h3>
     <%= yield %>
-
-    
     <%= javascript_include_tag "application" %>
   </body>
 </html>
