@@ -2,13 +2,29 @@ require 'spec_helper'
 
 describe "Task pages" do
   subject { page }
+  
+  describe "input form" do
+    before { visit '/tasks' }
+    #it { should have_selector('input') }
+
+    describe "with valid information" do
+      before do
+        fill_in "task_description", with: "Lorem ipsum"
+        select "low", from: "task_importance"
+      end
+
+      it "should create a micropost" do
+        expect { click_on "commit"}.to change(Task, :count).by(1)
+      end
+    end
+
+  end
 
   describe "no tasks" do
     describe "/tasks" do
       before { visit '/tasks' }
 
       it { should have_selector('h1', text: "Tasks") }
-      it { should_not have_selector('li') }
     end
   end
 

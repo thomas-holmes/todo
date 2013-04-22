@@ -1,5 +1,11 @@
 <h1>Tasks!</h1>
 
+<%= form_for(@task) do |f| %>
+  <%= f.text_field :description, placeholder: 'Task description...' %>
+  <%= f.select :importance, options_for_select([:low, :medium, :high]) %>
+  <%= f.submit "Submit", id: 'commit', class: "button" %>
+<% end %>
+
 <% if !@tasks.empty? %>
   <% @tasks.each do |importance, task_group| %>
     <h4 class="<%= importance %>"><%= importance %></h4>

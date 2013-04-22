@@ -16,8 +16,8 @@ Todo::Application.routes.draw do
 
   resources :tasks
 
-  #match '/tasks', to: 'task#index'
-
+  match '/about', to: 'application#about'
+  match '/contact', to: 'application#contact'
 
   # Sample resource route with options:
   #   resources :products do
