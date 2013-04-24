@@ -39,6 +39,14 @@
   </nav>
 
   <body>
+    <div class="flash">
+      <% flash.each do |key, value| %>
+        <div data-alert class="alert-box <%= key %>">
+          <%= content_tag(:div, value) %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
