@@ -8,7 +8,9 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(params[:task])
-    @task.save
+    if @task.save
+      flash[:secondary] = "Wow! You added a task!"
+    end
     redirect_to action: 'index'
   end
 end
