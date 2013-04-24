@@ -3,25 +3,35 @@ require 'spec_helper'
 describe TasksController do
   describe "GET index" do
     describe "@tasks" do
-      before { 10.times { FactoryGirl.create(:task) } }
+      describe "with signed in user" do
+        let(:user) { FactoryGirl.create(:user) }
+        before do
+          sign_in user
+          10.times { FactoryGirl.create(:task, user: user) }
+        end
 
 
-      it "assigns @tasks" do
-        get :index
-        assigns(:tasks).should_not be nil
+        it "assigns @tasks" do
+          get :index
+          assigns(:tasks).should_not be nil
+        end
+        
+        it "groups @tasks by importance" do
+          get :index
+          puts subject.tasks
+          subject.tasks.count.should eq 3
+        end
+        it "renders the index template" do
+          get :index
+          response.should render_template("index")
+        end
       end
-      
-      it "groups @tasks by importance" do
-        get :index
-        puts subject.tasks
-        subject.tasks.count.should eq 3
+      describe "without signed in user" do
+        it "should redirect to sign-in" do
+          get :index
+          response.should redirect_to(new_user_session_path)
+        end
       end
-    end
-
-
-    it "renders the index template" do
-      get :index
-      response.should render_template("index")
     end
   end
 end
