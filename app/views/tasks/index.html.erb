@@ -20,12 +20,14 @@
   <div class="small-12 columns">
     <% if !@tasks.empty? %>
       <% @tasks.each do |importance, task_group| %>
-        <h4 class="<%= importance %>"><%= importance %></h4>
-        <ul class="<%= importance%>">
-        <% task_group.each do |task| %>
-          <li class="task"><%= task.description %></li>
-        <% end %>
-        </ul>
+        <div class="<%= importance %>">
+          <h4 class="<%= importance %>"><%= importance %></h4>
+          <ul class="<%= importance%>">
+          <% task_group.each do |task| %>
+            <a class="task" href="#"><li class="task"><%= task.description %></li></a>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
     <% end %>
   </div>
