@@ -14,4 +14,12 @@ class TasksController < ApplicationController
     end
     redirect_to action: 'index'
   end
+
+  def show
+    @task = current_user.tasks.find(params[:id])
+  end
+
+  def destroy
+    @task = current_user.tasks.find(params[:id]).delete
+  end
 end
