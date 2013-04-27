@@ -2,5 +2,5 @@ $('#edit_task_<%= @task.id %>').remove();
 var group = $("#<%= @task.importance %>");
 if (!group.children('form').length)
 {
-  group.remove();
+  group.parent().remove();
 }
