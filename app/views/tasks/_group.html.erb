@@ -1,0 +1,8 @@
+<div class="row">
+  <div id="<%= importance %>" class="small-10 columns small-centered">
+    <h4 class="<%= importance %>"><%= importance %></h4>
+    <% task_group.each do |task| %>
+      <%= render "task", task: task %>
+    <% end %>
+  </div>
+</div>

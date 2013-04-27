@@ -16,3 +16,6 @@
 
 # Ignore vim .swp files
 *.swp
+
+#ignore tags
+tags
