@@ -12,7 +12,10 @@ class TasksController < ApplicationController
     if @task.save
       flash[:secondary] = "Wow! You added a task!"
     end
-    redirect_to action: 'index'
+    respond_to do |format|
+      format.html { redirect_to action: 'index' }
+      format.js
+    end
   end
 
   def show

@@ -2,26 +2,14 @@
   <div class="small-12 small-centered columns"><h1 id="page-title">Tasks!</h1></div>
 </div>
 
-<div class="row">
-<%= form_for(@task) do |f| %>
-  <div class="small-8 columns">
-  <%= f.text_field :description, placeholder: 'Task description...' %>
-  </div>
-  <div class="small-2 columns">
-  <%= f.select :importance, options_for_select([:low, :medium, :high]) %>
-  </div>
-  <div class="small-2 columns">
-  <%= f.submit "Submit", id: 'commit', class: "button" %>
-  </div>
-<% end %>
-</div>
+<%= render "form", task: @task %>
 
 <div class="row">
   <div class="small-12 columns">
     <% if !@tasks.empty? %>
       <% @tasks.each do |importance, task_group| %>
-        <div class="<%= importance %> row">
-          <div class="small-10 columns small-centered">
+        <div class="row">
+          <div id="<%= importance %>" class="small-10 columns small-centered">
             <h4 class="<%= importance %>"><%= importance %></h4>
             <% task_group.each do |task| %>
               <%= render "task", task: task %>
