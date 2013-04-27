@@ -5,17 +5,10 @@
 <%= render "form", task: @task %>
 
 <div class="row">
-  <div class="small-12 columns">
+  <div id="group_container" class="small-12 columns">
     <% if !@tasks.empty? %>
       <% @tasks.each do |importance, task_group| %>
-        <div class="row">
-          <div id="<%= importance %>" class="small-10 columns small-centered">
-            <h4 class="<%= importance %>"><%= importance %></h4>
-            <% task_group.each do |task| %>
-              <%= render "task", task: task %>
-            <% end %>
-          </div>
-        </div>
+        <%= render "group", importance: importance, task_group: task_group %> 
       <% end %>
     <% end %>
   </div>
