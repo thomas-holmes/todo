@@ -1,0 +1,10 @@
+var g = $("#<%= @task.importance %>");
+if (g.length)
+{
+  g.append("<%= j render(@task) %>");
+}
+else
+{
+  $("#group_container").append("<%= j render 'group', importance: @task.importance, task_group: [@task] %>");
+}
+$("#new_task").each(function() { this.reset(); });

@@ -1,0 +1,8 @@
+<%= form_for task, remote: true do|f| %>
+<div class="row">
+  <div class="task columns small-12 small-centered">
+    <span class="task"><%= task.description %></span>
+    <%= link_to task, class: 'removal-link', data: {confirm: 'Are you sure?', method: 'delete'}, rel: "nofollow", remote: "true" do %>Remove<% end %>
+  </div>
+</div>
+<% end %>

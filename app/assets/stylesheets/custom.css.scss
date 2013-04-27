@@ -1,3 +1,14 @@
 #page-title {
   text-align: center;
 }
+
+.removal-link {
+  margin-left: 10px;
+  color: #AAAAAA;
+}
+
+div.task {
+  &:hover {
+    background-color: #DDDDEE;
+  }
+}
