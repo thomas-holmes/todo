@@ -1,2 +1,2 @@
-$("#tasks").append("<%= j render @task %>")
+$("#tasks").append("<% if @task.valid? %><%= j render @task %><% end %>")
 $("#new_task").each(function() { this.reset(); });

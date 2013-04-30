@@ -9,7 +9,6 @@
     <% if !@tasks.empty? %>
       <h4><%= pluralize(@tasks.count, "task") %></h4>
       <% @tasks.each do |task| %>
-        <span><%= task.inspect %></span>
         <%= render task %>
       <% end %>
     <% end %>
