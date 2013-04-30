@@ -1,2 +1,3 @@
 $("#tasks").append("<% if @task.valid? %><%= j render @task %><% end %>")
 $("#new_task").each(function() { this.reset(); });
+$('#task-count').text("<%= j pluralize(current_user.tasks.count, 'task') %>")

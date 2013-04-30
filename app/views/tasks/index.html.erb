@@ -5,9 +5,9 @@
 <%= render "form", task: @task %>
 
 <div class="row">
+  <h4 id="task-count" class="small-12 columns"><%= pluralize(@tasks.count, "task") %></h4>
   <div id="tasks" class="small-12 columns">
     <% if !@tasks.empty? %>
-      <h4><%= pluralize(@tasks.count, "task") %></h4>
       <% @tasks.each do |task| %>
         <%= render task %>
       <% end %>
