@@ -15,7 +15,6 @@ describe "Task pages" do
     describe "with valid information" do
       before(:each) do
         page.fill_in "task_description", with: "Lorem ipsum"
-        page.select "low", from: "task_importance"
       end
 
       it "should create a micropost" do
@@ -38,19 +37,15 @@ describe "Task pages" do
     describe "/tasks" do
       before { visit '/tasks' }
 
-      it { page.should have_selector('li', text: @task.description) }
+      it { page.should have_selector('span', text: @task.description) }
     end
   end
 
   describe "multiple tasks" do
     before do
-      10.times { FactoryGirl.create(:task, user: @user) } # this will create several of each importance
+      10.times { FactoryGirl.create(:task, user: @user) }
       visit '/tasks'
     end
-
-    it { page.should have_selector('h4', text: "low") }
-    it { page.should have_selector('h4', text: "medium") }
-    it { page.should have_selector('h4', text: "high") }
   end
 end
 

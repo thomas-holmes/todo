@@ -16,10 +16,9 @@ describe TasksController do
           assigns(:tasks).should_not be nil
         end
         
-        it "groups @tasks by importance" do
+        it "should have all tasks" do
           get :index
-          puts subject.tasks
-          subject.tasks.count.should eq 3
+          subject.tasks.count.should eq 10
         end
         it "renders the index template" do
           get :index

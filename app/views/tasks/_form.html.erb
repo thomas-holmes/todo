@@ -1,10 +1,7 @@
 <div class="row">
 <%= form_for task, remote: true do |f| %>
-  <div class="small-8 columns">
+  <div class="small-10 columns">
   <%= f.text_field :description, placeholder: 'Task description...' %>
-  </div>
-  <div class="small-2 columns">
-  <%= f.select :importance, options_for_select([:low, :medium, :high]) %>
   </div>
   <div class="small-2 columns">
   <%= f.submit "Submit", id: 'commit', class: "button" %>

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   attr_reader :tasks
 
   def index
-    @tasks = current_user.tasks.group_by(&:importance)
+    @tasks = current_user.tasks.select { |t| !t.id.nil? }
     @task = current_user.tasks.build
   end
 
