@@ -1,2 +1,2 @@
-$('#edit_task_<%= @task.id %>').remove();
+$('#task_<%= @task.id %>').remove();
 $('#task-count').text("<%= j pluralize(current_user.tasks.count, 'task') %>")

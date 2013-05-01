@@ -7,8 +7,12 @@
   color: #AAAAAA;
 }
 
-div.task {
+li.task {
   &:hover {
     background-color: #DDDDEE;
   }
+}
+
+ul#tasks {
+  list-style-type: none;
 }
