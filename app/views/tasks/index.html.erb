@@ -7,7 +7,7 @@
 <div class="row">
   <h4 id="task-count" class="small-12 columns"><%= pluralize(@tasks.count, "task") %></h4>
   <div class="small-12 columns">
-    <ul id="tasks" class="small-12 columns">
+    <ul id="tasks" class="small-12 columns" data-update-url="<%= sort_tasks_url %>">
     <% if !@tasks.empty? %>
       <% @tasks.each do |task| %>
           <%= render task %>

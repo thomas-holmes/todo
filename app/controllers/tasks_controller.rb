@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   attr_reader :tasks
 
   def index
-    @tasks = current_user.tasks.select { |t| !t.id.nil? }
+    @tasks = current_user.tasks.order("position").select { |t| !t.id.nil? }
     @task = current_user.tasks.build
   end
 
@@ -22,5 +22,11 @@ class TasksController < ApplicationController
 
   def destroy
     @task = current_user.tasks.find(params[:id]).delete
+  end
+
+  def sort
+    params[:task].each_with_index do |id, index|
+      Task.update_all({position: index+1}, {id: id})
+    end
   end
 end
