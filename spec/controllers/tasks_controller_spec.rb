@@ -5,9 +5,10 @@ describe TasksController do
     describe "@tasks" do
       describe "with signed in user" do
         let(:user) { FactoryGirl.create(:user) }
+        let(:list) { FactoryGirl.create(:list, user: user) }
         before do
           sign_in user
-          10.times { FactoryGirl.create(:task, user: user) }
+          10.times { FactoryGirl.create(:task, list: list) }
         end
 
 

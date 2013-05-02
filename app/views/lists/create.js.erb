@@ -1,0 +1,2 @@
+$("#lists").append("<% if @list.valid? %><%= j render @list %><% end %>")
+$("#new_list").each(function() { this.reset(); });

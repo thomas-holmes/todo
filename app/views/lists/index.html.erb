@@ -1,0 +1,18 @@
+<div class="row">
+  <h1 class="small-12 columns">Lists!</h1>
+  <%= form_for @list, remote: true do |f| %>
+  <div class="small-10 columns">
+    <%= f.text_field :title, placeholder: 'List name...' %>
+  </div>
+  <div class="small-2 columns">
+    <%= f.submit 'Submit', id: 'commit', class: 'button prefix' %>
+  </div>
+</div>
+<div class="row">
+  <% end %>
+  <ul id="lists" class="small-12 columns">
+    <% @lists.each do |list| %>
+      <%= render 'list', list: list %>
+    <% end %>
+  </ul>
+</div>

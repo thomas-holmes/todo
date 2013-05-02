@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   attr_reader :tasks
 
   def index
-    @tasks = current_user.tasks.order("position").select { |t| !t.id.nil? }
+    @tasks = current_user.lists.tasks.order("position").select { |t| !t.id.nil? }
     @task = current_user.tasks.build
   end
 

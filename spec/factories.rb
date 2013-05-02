@@ -4,8 +4,12 @@ FactoryGirl.define do
     password "abcdefghi"
     password_confirmation "abcdefghi"
   end
+  factory :list do
+    sequence(:title) { |n| "task list_#{n}" }
+    user
+  end
   factory :task do
     sequence(:description) { |n| "Test description #{n}" }
-    user
+    list
   end
 end

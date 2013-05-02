@@ -20,6 +20,8 @@ Todo::Application.routes.draw do
     collection { post :sort } 
   end
 
+  resources :lists
+
   match '/about', to: 'application#about'
   match '/contact', to: 'application#contact'
 
