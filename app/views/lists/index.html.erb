@@ -10,9 +10,11 @@
 </div>
 <div class="row">
   <% end %>
-  <ul id="lists" class="small-12 columns">
-    <% @lists.each do |list| %>
-      <%= render 'list', list: list %>
-    <% end %>
-  </ul>
+  <div class="small-12 columns">
+    <ul id="lists" class="small-12 columns">
+      <% @lists.each do |list| %>
+        <%= render 'list', list: list %>
+      <% end %>
+    </ul>
+  </div>
 </div>
