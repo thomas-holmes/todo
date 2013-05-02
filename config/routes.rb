@@ -16,11 +16,11 @@ Todo::Application.routes.draw do
   #   resources :products
   root :to => 'application#index'
 
-  resources :tasks do
-    collection { post :sort } 
+  resources :lists do
+    resources :tasks do
+      collection { post :sort } 
+    end
   end
-
-  resources :lists
 
   match '/about', to: 'application#about'
   match '/contact', to: 'application#contact'

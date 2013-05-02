@@ -21,7 +21,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = current_user.tasks.find(params[:id]).delete
+    @task = current_user.lists.find(params[:list_id]).tasks.find(params[:id]).delete
   end
 
   def sort
