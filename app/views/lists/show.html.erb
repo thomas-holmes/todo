@@ -1,9 +1,13 @@
-<h1>SHOW?</h1>
-<h2><%= @list.title %></h2>
-<ul id="tasks">
-  <% @tasks.each do |task| %>
-    <li>
-    <%= render 'tasks/task', list: @list, task: task %>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
+  <h2><%= @list.title %></h2>
+  <div class="small-12 columns">
+  <%= render 'tasks/form', list: @list, task: @task %>
+  </div>
+  <ul id="tasks" class="small-12 columns">
+    <% @tasks.each do |task| %>
+      <li>
+      <%= render 'tasks/task', list: @list, task: task %>
+      </li>
+    <% end %>
+  </ul>
+</div>

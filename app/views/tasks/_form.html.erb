@@ -1,5 +1,5 @@
 <div class="row">
-<%= form_for task, remote: true do |f| %>
+<%= form_for [list, task], action: 'new', remote: true do |f| %>
   <div class="small-10 columns">
   <%= f.text_field :description, placeholder: 'Task description...' %>
   </div>

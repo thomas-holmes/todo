@@ -13,7 +13,9 @@ class ListsController < ApplicationController
 
   def show
     @list = current_user.lists.find(params[:id])
+    puts "LIST#{@list}"
     @tasks = @list.tasks
+    @task = Task.create
   end
 
   def destroy

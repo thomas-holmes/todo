@@ -8,10 +8,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.build(params[:task])
+    @list = current_user.lists.find(params[:list_id])
+    @task = @list.tasks.build(params[:task])
     @task.save
     respond_to do |format|
-      format.html { redirect_to action: 'index' }
+      format.html
       format.js
     end
   end

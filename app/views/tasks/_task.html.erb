@@ -1,4 +1,4 @@
-<%= content_tag_for :li, task do %>
+<%= content_tag_for :li, task, class: "small-12 columns" do %>
   <%= form_for [list, task], remote: true do|f| %>
     <span class="task"><%= task.description %></span>
     <%= link_to list_task_path(id: task.id, list_id: task.list_id), class: 'removal-link', data: {confirm: 'Are you sure?', method: 'delete'}, rel: "nofollow", remote: "true" do %>Remove<% end %>
