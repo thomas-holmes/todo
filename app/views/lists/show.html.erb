@@ -3,7 +3,7 @@
   <div class="small-12 columns">
   <%= render 'tasks/form', list: @list, task: @task %>
   </div>
-  <ul id="tasks" class="small-12 columns">
+  <ul id="tasks" class="small-12 columns" data-update-url="<%= sort_list_tasks_url @list %>">
     <% @tasks.each do |task| %>
       <li>
       <%= render 'tasks/task', list: @list, task: task %>

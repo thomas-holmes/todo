@@ -18,7 +18,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = current_user.tasks.find(params[:id])
+    @task = current_user.lists.find(params[:list_id]).tasks.find(params[:id])
   end
 
   def destroy
@@ -26,6 +26,7 @@ class TasksController < ApplicationController
   end
 
   def sort
+    render nothing: true
     params[:task].each_with_index do |id, index|
       Task.update_all({position: index+1}, {id: id})
     end
