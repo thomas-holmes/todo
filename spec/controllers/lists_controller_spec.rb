@@ -20,5 +20,10 @@ describe ListsController do
       get 'show', { id: id }
       expect(response).to redirect_to(list_tasks_url list_id: id )
     end
+
+    it "#create should create new list" do
+      post 'create', title: "test list"
+      assigns(:list).should_not be nil
+    end
   end
 end

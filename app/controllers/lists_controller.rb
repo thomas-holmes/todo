@@ -9,6 +9,10 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.build(params[:list])
     @list.save
+    respond_to do |format|
+      format.html { redirect_to 'index' }
+      format.js
+    end
   end
 
   def show
