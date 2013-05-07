@@ -3,8 +3,9 @@ class TasksController < ApplicationController
   attr_reader :tasks
 
   def index
-    @tasks = current_user.lists.tasks.order("position").select { |t| !t.id.nil? }
-    @task = current_user.tasks.build
+    @list = current_user.lists.find(params[:list_id])
+    @tasks = @list.tasks.select { |t| !t.new_record? }
+    @task = @list.tasks.build
   end
 
   def create
