@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task = @list.tasks.build(params[:task])
     @task.save
     respond_to do |format|
-      format.html
+      format.html { redirect_to list_tasks_url list_id: @list.id }
       format.js
     end
   end

@@ -8,9 +8,10 @@ describe "Task pages" do
     fill_in 'user_password', with: @user.password
     click_on 'Sign in'
   end
+  let(:list) { FactoryGirl.create(:list, user: @user) }
   
   describe "input form" do
-    before { visit '/tasks' }
+    before { visit list_tasks_url list_id: list.id }
 
     describe "with valid information" do
       before(:each) do
@@ -26,16 +27,16 @@ describe "Task pages" do
 
   describe "no tasks" do
     describe "/tasks" do
-      before { visit '/tasks' }
+      before { visit list_tasks_url list_id: list }
 
       it { page.should have_selector('h1', text: "Tasks") }
     end
   end
 
   describe "one task" do
-    before { @task = FactoryGirl.create(:task, user: @user) }
-    describe "/tasks" do
-      before { visit '/tasks' }
+    before { @task = FactoryGirl.create(:task, list: list) }
+    describe "tasks url" do
+      before { visit list_tasks_url(list_id: list) }
 
       it { page.should have_selector('span', text: @task.description) }
     end
@@ -43,8 +44,8 @@ describe "Task pages" do
 
   describe "multiple tasks" do
     before do
-      10.times { FactoryGirl.create(:task, user: @user) }
-      visit '/tasks'
+      10.times { FactoryGirl.create(:task, list: list) }
+      visit list_tasks_url(list_id: list)
     end
   end
 end
