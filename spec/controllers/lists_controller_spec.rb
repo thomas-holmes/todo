@@ -13,5 +13,12 @@ describe ListsController do
       get :index
       assigns(:lists).should_not be nil
     end
+
+    it "#show should redirect" do
+      id = user.lists.first.id
+      puts(id)
+      get 'show', { id: id }
+      expect(response).to redirect_to(list_tasks_url list_id: id )
+    end
   end
 end

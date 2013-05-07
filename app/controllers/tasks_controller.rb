@@ -17,10 +17,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-    @task = current_user.lists.find(params[:list_id]).tasks.find(params[:id])
-  end
-
   def destroy
     @task = current_user.lists.find(params[:list_id]).tasks.find(params[:id]).delete
   end

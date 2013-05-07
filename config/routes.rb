@@ -16,8 +16,8 @@ Todo::Application.routes.draw do
   #   resources :products
   root :to => 'application#index'
 
-  resources :lists do
-    resources :tasks do
+  resources :lists, only: [:index, :create, :show, :destroy] do
+    resources :tasks, only: [:index, :create, :destroy]  do
       collection { post :sort } 
     end
   end

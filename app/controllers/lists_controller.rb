@@ -12,10 +12,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = current_user.lists.find(params[:id])
-    puts "LIST#{@list}"
-    @tasks = @list.tasks
-    @task = Task.create
+    redirect_to list_tasks_url list_id: params[:id]
   end
 
   def destroy
