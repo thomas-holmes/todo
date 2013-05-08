@@ -19,8 +19,10 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    render nothing: true
     @task = current_user.lists.find(params[:list_id]).tasks.find(params[:id]).delete
+    respond_to do |format|
+      format.js
+    end
   end
 
   def sort
