@@ -31,7 +31,9 @@
   </ul>
   <section class="top-bar-section">
   <ul class="right">
-    <li><a href="/">Home</a></li>
+    <% if user_signed_in? %>
+      <li><%= link_to('Lists', lists_path) %></li>
+    <% end %>
     <li><a href="about">About</a></li>
     <li><a href="contact">Contact</a></li>
   </ul>
