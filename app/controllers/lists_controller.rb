@@ -20,6 +20,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    render nothing: true
     @list = current_user.lists.find(params[:id]).delete
   end
 end

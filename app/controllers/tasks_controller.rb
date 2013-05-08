@@ -19,6 +19,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    render nothing: true
     @task = current_user.lists.find(params[:list_id]).tasks.find(params[:id]).delete
   end
 
