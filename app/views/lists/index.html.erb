@@ -11,7 +11,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <ul id="lists" class="small-12 columns">
+    <ul id="lists" class="small-12 columns" data-update-url="<%= sort_lists_url %>">
       <% @lists.each do |list| %>
         <%= render 'list', list: list %>
       <% end %>

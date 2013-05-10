@@ -23,4 +23,11 @@ class ListsController < ApplicationController
     render nothing: true
     @list = current_user.lists.find(params[:id]).delete
   end
+
+  def sort
+    render nothing: true
+    params[:list].each_with_index do |id, index|
+      List.update_all({position: index+1}, {id: id})
+    end
+  end
 end

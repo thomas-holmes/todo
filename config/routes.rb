@@ -4,6 +4,7 @@ Todo::Application.routes.draw do
   root :to => 'application#index'
 
   resources :lists, only: [:index, :create, :show, :destroy] do
+    collection { post :sort } 
     resources :tasks, only: [:index, :create, :destroy]  do
       collection { post :sort } 
     end
