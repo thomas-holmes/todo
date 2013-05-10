@@ -20,8 +20,10 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    render nothing: true
     @list = current_user.lists.find(params[:id]).delete
+    respond_to do |format|
+      format.js
+    end
   end
 
   def sort
