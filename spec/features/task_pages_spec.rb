@@ -22,15 +22,6 @@ describe "Task pages" do
         expect { click_on "commit"}.to change(Task, :count).by(1)
       end
     end
-
-  end
-
-  describe "no tasks" do
-    describe "/tasks" do
-      before { visit list_tasks_url list_id: list }
-
-      it { page.should have_selector('h1', text: "Tasks") }
-    end
   end
 
   describe "one task" do
