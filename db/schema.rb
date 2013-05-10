@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510010123) do
+ActiveRecord::Schema.define(:version => 20130510023850) do
 
   create_table "lists", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130510010123) do
     t.datetime "updated_at",  :null => false
     t.integer  "position"
     t.integer  "list_id"
+    t.boolean  "complete"
   end
 
   create_table "users", :force => true do |t|

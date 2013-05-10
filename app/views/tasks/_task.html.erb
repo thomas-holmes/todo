@@ -1,5 +1,6 @@
 <%= content_tag_for :li, task, class: "small-12 columns" do %>
   <%= form_for [task.list, task], remote: true do|f| %>
+    <%= f.check_box :complete %>
     <span class="task"><%= task.description %></span>
     <%= link_to list_task_url(id: task.id, list_id: task.list_id),
       class: 'removal-link', data: {confirm: 'Are you sure?', method: 'delete'},

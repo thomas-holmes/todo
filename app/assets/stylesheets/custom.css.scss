@@ -16,3 +16,9 @@ li.task {
 ul {
   list-style-type: none;
 }
+
+.completed_task {
+  text-decoration: line-through;
+  font-style: italic;
+  color: #cccccc;
+}
