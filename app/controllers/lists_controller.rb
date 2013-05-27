@@ -10,7 +10,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.build(params[:list])
     @list.save
     respond_to do |format|
-      format.html { redirect_to 'index' }
+      format.html { redirect_to :lists }
       format.js
     end
   end
