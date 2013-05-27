@@ -20,3 +20,6 @@
 
 #ignore tags
 tags
+
+#ignore binstubs
+/bin
