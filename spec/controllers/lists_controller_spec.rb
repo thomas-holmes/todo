@@ -16,7 +16,6 @@ describe ListsController do
 
     it "#show should redirect" do
       id = user.lists.first.id
-      puts(id)
       get 'show', { id: id }
       expect(response).to redirect_to(list_tasks_url list_id: id )
     end
